@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Special 💖</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #ffdde1;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        margin-top: 40px;
+        font-size: 32px;
+        color: #d1005d;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 20px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    #yesBtn { background-color: #ff1f6b; color: white; }
+    #noBtn { background-color: #333; color: white; }
+
+    #page2 {
+        display: none;
+        margin-top: 20px;
+        padding-bottom: 50px;
+    }
+
+    .box {
+        background: white;
+        padding: 20px;
+        margin: 15px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px #c15973;
+        font-size: 20px;
+    }
+
+    /* Floating Hearts */
+    .heart {
+        position: absolute;
+        bottom: -10px;
+        color: #086387;
+        animation: floatUp 6s linear infinite;
+        font-size: 25px;
+        opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0) scale(1); opacity: 1; }
+        100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1">
+    <h1>Do you want to become my Valentine partner? ❤️</h1>
+
+    <button id="yesBtn">YES</button>
+    <button id="noBtn">NO</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2">
+    <h1>Romantic Pick-Up Lines ❤️</h1>
+    <div class="box">do you know you are so sweet like a rosogulla....</div>
+    <div class="box">Are you a magician? Because whenever I look at you, everyone disappears.</div>
+    <div class="box">If kisses were snowflakes, I’d send you a blizzard.</div>
+    <div class="box">Your smile is my favorite place to live.</div>
+    <div class="box">You must be tired, because you’ve been running through my mind all day.</div>
+
+    <h1>हिंदी Romantic लाइन्स 💕</h1>
+    <div class="box">main tumhe jab ve dekh ta hu tumhare baalo mein aag lagane ka mann karta hai kyuki tum hamesa pataka lagti ho....</div>
+    <div class="box">तुम्हारी मुस्कान मेरे दिल की जान है।</div>
+    <div class="box">तुम्हें देखकर लगता है कि भगवान ने फुरसत में बनाया होगा।</div>
+    <div class="box">तुम्हारी आँखें नहीं… दो खूबसूरत जादू हैं।</div>
+    <div class="box">अगर तुम वैलेंटाइन बन जाओ, तो ज़िंदगी एक कहानी बन जाएगी।</div>
+</div>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2023/01/09/audio_72ce65c4e3.mp3?filename=love-story-135315.mp3" type="audio/mp3">
+</audio>
+
+<script>
+    // YES → Show Page 2 on same screen
+    document.getElementById("yesBtn").onclick = function() {
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("page2").style.display = "block";
+    };
+
+    // NO → Alert only
+    document.getElementById("noBtn").onclick = function() {
+        alert("No मत दबाओ यार… एक बार YES कर दो ना ❤️");
+    };
+
+    // Floating hearts
+    setInterval(() => {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => { heart.remove(); }, 7000);
+    }, 350);
+</script>
+
+</body>
+</html>
